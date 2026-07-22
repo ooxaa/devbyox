@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="id" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>DevByOx - Frontend Roadmap 2026 E-Book</title>
+
+    <!-- 1. Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+
+    <!-- 2. AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+      .bg-grid-pattern {
+        background-size: 30px 30px;
+      }
+      .dark .bg-grid-pattern {
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      }
+      html:not(.dark) .bg-grid-pattern {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-[-apple-system,BlinkMacSystemFont,'SF_Pro_Display','Segoe_UI',Roboto,sans-serif] antialiased bg-grid-pattern overflow-x-hidden transition-colors duration-300 pb-16 md:pb-0"
+  >
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- LOGO BRAND -->
+        <div class="flex items-center gap-2">
+          <a href="#" class="font-black text-xl tracking-tight text-slate-900 dark:text-white"> DevBy<span class="text-sky-500">Ox</span> </a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <!-- TOGGLE BUTTON DARK/LIGHT MODE -->
+          <button
+            onclick="toggleTheme()"
+            id="themeToggleBtn"
+            class="p-2.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-amber-400 hover:scale-105 transition active:scale-95 text-sm flex items-center justify-center shadow-sm"
+            title="Ubah Tema"
+          >
+            <span id="themeIcon">🌙</span>
+          </button>
+
+          <!-- CTA NAVBAR -->
+          <a href="https://lynk.id/ooxaa_" target="_blank" class="bg-sky-500 hover:bg-sky-400 text-white font-bold px-4 sm:px-5 py-2.5 rounded-2xl transition active:scale-95 text-xs shadow-lg shadow-sky-500/20 inline-block">
+            Dapatkan E-Book
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="pt-32 pb-20 px-6 relative overflow-hidden">
+      <!-- Ambient Blur Background -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/20 dark:bg-sky-500/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+        <!-- Left Column: Copywriting -->
+        <div class="space-y-6 text-center md:text-left" data-aos="fade-up" data-aos-duration="1000">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/80 border border-sky-300 dark:border-sky-800 text-sky-700 dark:text-sky-400 text-xs font-semibold">
+            <span>🚀 Updated Edition 2026</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+            Dari Otodidak Jadi <span class="bg-gradient-to-r from-sky-500 to-indigo-600 dark:from-sky-400 dark:to-indigo-400 bg-clip-text text-transparent">Frontend Developer</span> Handal.
+          </h1>
+
+          <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">Panduan taktis tanpa basa-basi buat kamu yang belajar koding mandiri. Dilengkapi roadmap terstruktur, studi kasus proyek nyata, dan strategi lolos kerja.</p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start pt-2">
+            <button
+              onclick="handleCheckout()"
+              class="bg-sky-500 hover:bg-sky-400 text-white font-bold px-8 py-4 rounded-2xl transition active:scale-95 text-sm shadow-xl shadow-sky-500/25 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Beli Sekarang - Rp. 99rb</span>
+              <span>→</span>
+            </button>
+            <button
+              onclick="downloadSample()"
+              class="bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold px-6 py-4 rounded-2xl border border-slate-200 dark:border-slate-800 transition text-sm flex items-center justify-center shadow-sm cursor-pointer"
+            >
+              📖 Gratis Sampel Bab 1
+            </button>
+          </div>
+
+          <!-- Rating & Avatar Pembaca -->
+          <div class="flex items-center justify-center md:justify-start gap-4 pt-4 border-t border-slate-200 dark:border-slate-900">
+            <div class="flex -space-x-3">
+              <img class="w-9 h-9 rounded-full border-2 border-white dark:border-slate-950 object-cover" src="assets/tes1.jpeg" alt="Reader Avatar 1" />
+              <img class="w-9 h-9 rounded-full border-2 border-white dark:border-slate-950 object-cover" src="assets/tes2.jpeg" alt="Reader Avatar 2" />
+              <img class="w-9 h-9 rounded-full border-2 border-white dark:border-slate-950 object-cover" src="assets/tes3.jpeg" alt="Reader Avatar 3" />
+            </div>
+            <div class="text-xs text-slate-500 dark:text-slate-400"><span class="text-amber-500 dark:text-amber-400 font-bold">★★★★★ 4.9/5</span> dari <span class="text-slate-900 dark:text-white font-semibold">1,000+ Pembaca</span></div>
+          </div>
+        </div>
+
+        <!-- Right Column: E-Book Mockup Card -->
+        <div class="flex justify-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="relative group max-w-sm w-full">
+            <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-indigo-600 rounded-3xl blur-xl opacity-30 dark:opacity-40 group-hover:opacity-75 transition duration-500"></div>
+
+            <div class="relative bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-6 shadow-2xl backdrop-blur-xl transition-colors duration-300">
+              <div class="relative aspect-[3/4] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 shadow-inner group">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Code Workspace" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-6 flex flex-col justify-end">
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-sky-400">E-BOOK GUIDE</span>
+                  <h3 class="text-2xl font-black text-white leading-snug">FRONTEND ROADMAP 2026</h3>
+                  <p class="text-xs text-slate-300 mt-1">Menguasai HTML, CSS, JS Logic, hingga Siap Kerja.</p>
+                </div>
+              </div>
+
+              <div class="text-center space-y-1">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Format: PDF Digital (Instant Download)</p>
+                <p class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">✓ Akses Selamanya + Free Update Code</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET THE AUTHOR SECTION -->
+    <section class="py-16 px-6 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-900 transition-colors duration-300">
+      <div
+        class="max-w-4xl mx-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center gap-8 shadow-sm dark:shadow-none"
+        data-aos="fade-up"
+        data-aos-duration="900"
+      >
+        <!-- Foto Author -->
+        <div class="relative shrink-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-sky-500/30 shadow-xl">
+            <img src="assets/pic1_compressed.png" alt="Author Ox" class="w-full h-full object-cover" />
+          </div>
+          <span class="absolute bottom-2 right-2 bg-sky-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">AUTHOR</span>
+        </div>
+
+        <!-- Bio Author -->
+        <div class="space-y-3 text-center md:text-left">
+          <h3 class="text-2xl font-black text-slate-900 dark:text-white">Ossa Waliy Rianso</h3>
+          <p class="text-xs font-semibold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Developer & Self-Taught Learner</p>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+            "Saya percaya koding bukan cuma milik mereka yang punya gelar formal. E-Book ini ditulis berdasarkan pengalaman nyata belajar otodidak - fokus pada praktek, menyederhanakan logika rumit, dan membangun proyek yang benar-benar
+            bisa dipamerkan di portofolio."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES / DAFTAR ISI -->
+    <section id="features" class="py-20 px-6">
+      <div class="max-w-6xl mx-auto space-y-12">
+        <div class="text-center max-w-2xl mx-auto space-y-3" data-aos="fade-up">
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Materi Ringkas & Langsung Praktek</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Gak perlu pusing belajar dari puluhan tutorial terpisah. Semua dirangkum secara sistematis.</p>
+        </div>
+
+        <!-- Grid Cards -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-3 hover:border-sky-500/50 transition shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-10 h-10 rounded-2xl bg-sky-50 dark:bg-sky-950 border border-sky-200 dark:border-sky-800 flex items-center justify-center text-sky-600 dark:text-sky-400 font-bold">1</div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Fondasi Koding Solid</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Pahami logika HTML, CSS Layouting modern (Flexbox & Tailwind CSS), serta manipulasi DOM JavaScript.</p>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-3 hover:border-sky-500/50 transition shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-10 h-10 rounded-2xl bg-sky-50 dark:bg-sky-950 border border-sky-200 dark:border-sky-800 flex items-center justify-center text-sky-600 dark:text-sky-400 font-bold">2</div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">4 Studi Kasus Proyek</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Bikin Kalkulator, To-Do App dengan LocalStorage, Landing Page Produk, hingga Weather App pakai API.</p>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-3 hover:border-sky-500/50 transition shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-10 h-10 rounded-2xl bg-sky-50 dark:bg-sky-950 border border-sky-200 dark:border-sky-800 flex items-center justify-center text-sky-600 dark:text-sky-400 font-bold">3</div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Strategi Portofolio</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Tips menyusun portofolio yang bikin klien atau recruiter percaya walau kamu belajar secara otodidak.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONI PEMBACA -->
+    <section class="py-20 px-6 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-900 transition-colors duration-300">
+      <div class="max-w-6xl mx-auto space-y-12">
+        <div class="text-center max-w-2xl mx-auto space-y-2" data-aos="fade-up">
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Apa Kata Pembaca?</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm">Pengalaman mereka yang sudah mempraktekkan isi e-book ini.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-4 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-amber-500 dark:text-amber-400 text-sm">★★★★★</div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">"Penjelasannya runut banget! Dulu sempet bingung belajar Flexbox sama JS Logic, begitu baca e-book ini langsung Juara Piala Dunia 2026!"</p>
+            <div class="flex items-center gap-3 pt-2">
+              <img src="assets/yamalub.jpeg" class="w-10 h-10 rounded-full object-cover" alt="Lamine Yamal" />
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Lamine Yamal</h4>
+                <p class="text-[10px] text-slate-500">Football Player</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-4 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-amber-500 dark:text-amber-400 text-sm">★★★★★</div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">"Я никогда не сражаюсь за деньги, но каждый человек другой. Send me location!"</p>
+            <div class="flex items-center gap-3 pt-2">
+              <img src="assets/khabib.jpeg" class="w-10 h-10 rounded-full object-cover" alt="Khabib" />
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Khabib Nurmagomedov</h4>
+                <p class="text-[10px] text-slate-500">Former UFC Lightweight Champion</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-4 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
+            <div class="text-amber-500 dark:text-amber-400 text-sm">★★★★★</div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">"Worth it banget dibanding harganya. Ga bertele-tele dan langsung ke studi kasus nyata. Syududu.."</p>
+            <div class="flex items-center gap-3 pt-2">
+              <img src="assets/gupron.jpeg" class="w-10 h-10 rounded-full object-cover" alt="Ghufron" />
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Gianluigi Ghufron</h4>
+                <p class="text-[10px] text-slate-500">Hell Goalkeeper</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ INTERAKTIF -->
+    <section class="py-20 px-6 max-w-3xl mx-auto space-y-8" data-aos="fade-up">
+      <div class="text-center space-y-2">
+        <h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Pertanyaan Populer (FAQ)</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">Masih ada yang bingung? Cek jawaban di bawah ini.</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-none">
+          <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-sm text-slate-900 dark:text-white flex justify-between items-center">
+            <span>Apakah cocok untuk pemula yang belum pernah koding?</span>
+            <span id="icon-1" class="text-sky-500 transition-transform">+</span>
+          </button>
+          <div id="faq-1" class="hidden px-5 pb-5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/60 pt-3">
+            Sangat cocok! Materi disusun dari nol tanpa istilah ribet. Setiap konsep langsung disertai contoh kodingan sederhana.
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-none">
+          <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-sm text-slate-900 dark:text-white flex justify-between items-center">
+            <span>Bagaimana cara akses bukunya setelah bayar?</span>
+            <span id="icon-2" class="text-sky-500 transition-transform">+</span>
+          </button>
+          <div id="faq-2" class="hidden px-5 pb-5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800/60 pt-3">
+            Setelah pembayaran sukses, kamu akan langsung diarahkan ke halaman download e-book format PDF beserta link kode sumber proyek.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING / CHECKOUT BOX -->
+    <section id="pricing" class="py-20 px-6 relative" data-aos="zoom-in-up" data-aos-duration="800">
+      <div class="max-w-md mx-auto">
+        <div class="relative bg-white dark:bg-slate-900 border-2 border-sky-500/80 rounded-3xl p-8 space-y-6 shadow-2xl shadow-sky-500/10 text-center transition-colors duration-300">
+          <span class="bg-sky-500 text-white font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full inline-block">PROMO LAUNCHING</span>
+
+          <div class="space-y-1">
+            <h3 class="text-2xl font-black text-slate-900 dark:text-white">Akses Penuh E-Book + Source Code</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Sekali bayar untuk akses seumur hidup</p>
+          </div>
+
+          <!-- COUNTDOWN TIMER (URGENCY) -->
+          <div class="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl p-3">
+            <p class="text-[10px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-1">⚡ Promo Berakhir Dalam:</p>
+            <div id="countdownTimer" class="font-mono text-lg font-black text-amber-600 dark:text-amber-400">05:12:30</div>
+          </div>
+
+          <div class="py-2 border-y border-slate-100 dark:border-slate-800 space-y-1">
+            <div class="flex items-center justify-center gap-3">
+              <span class="text-slate-400 line-through text-sm">Rp. 199.000</span>
+              <span class="text-3xl font-black text-slate-900 dark:text-white">Rp. 99.000</span>
+            </div>
+          </div>
+
+          <ul class="text-left space-y-2 text-xs text-slate-600 dark:text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-sky-500 font-bold">✓</span> E-Book PDF Full Color (120+ Halaman)</li>
+            <li class="flex items-center gap-2"><span class="text-sky-500 font-bold">✓</span> Full Source Code Proyek Nyata</li>
+            <li class="flex items-center gap-2"><span class="text-sky-500 font-bold">✓</span> Komunitas Diskusi Discord Eksklusif</li>
+          </ul>
+
+          <button onclick="handleCheckout()" class="w-full bg-sky-500 hover:bg-sky-400 text-white font-bold py-4 rounded-2xl transition active:scale-95 text-sm shadow-xl shadow-sky-500/25 cursor-pointer">
+            Beli Sekarang (Bisa QRIS/Transfer)
+          </button>
+
+          <!-- RISK-FREE GUARANTEE BADGE -->
+          <p class="text-[11px] text-slate-400 dark:text-slate-300 text-center leading-tight pt-1">
+            <span>🛡️</span> <strong>100% Garansi Uang Kembali</strong><br />
+            <span class="text-[10px] text-slate-500 dark:text-slate-400 italic">Jika materi tidak sesuai.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5 bg-slate-100/60 dark:bg-slate-950/60 border-t border-slate-200 dark:border-slate-900 transition-colors duration-300">
+      <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center gap-2.5 text-center">
+        <!-- 1. Social Media Links (Ukuran Mungil & Rapat) -->
+        <!-- Social Media Links (Kotak dengan Radius Halus) -->
+        <div class="flex items-center justify-center gap-2.5">
+          <!-- Instagram -->
+          <a
+            href="https://instagram.com/ooxaa_"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-pink-500 dark:hover:text-pink-400 hover:border-pink-500/40 hover:scale-110 transition duration-200 flex items-center justify-center shadow-sm"
+            title="Instagram"
+          >
+            <i class="fa-brands fa-instagram text-[11px]"></i>
+          </a>
+
+          <!-- X / Twitter -->
+          <a
+            href="https://x.com/oxficiale"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 hover:border-sky-500/40 hover:scale-110 transition duration-200 flex items-center justify-center shadow-sm"
+            title="X (Twitter)"
+          >
+            <i class="fa-brands fa-x-twitter text-[11px]"></i>
+          </a>
+
+          <!-- Facebook -->
+          <a
+            href="https://facebook.com/profile.php?id=61550836378138"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 hover:border-blue-500/40 hover:scale-110 transition duration-200 flex items-center justify-center shadow-sm"
+            title="Facebook"
+          >
+            <i class="fa-brands fa-facebook-f text-[11px]"></i>
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/ooxaa"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-slate-900/40 dark:hover:border-white/40 hover:scale-110 transition duration-200 flex items-center justify-center shadow-sm"
+            title="GitHub"
+          >
+            <i class="fa-brands fa-github text-[11px]"></i>
+          </a>
+        </div>
+
+        <!-- 2. Copyright Text -->
+        <p class="text-[11px] font-medium text-slate-500 dark:text-slate-400">© 2026 <span class="font-bold text-slate-700 dark:text-slate-300">DevByOx.</span> All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- FLOATING CTA MOBILE (Melayang di layar bawah HP) -->
+    <div id="floatingCta" class="fixed bottom-4 left-4 right-4 z-40 md:hidden opacity-0 translate-y-10 transition-all duration-300 pointer-events-none">
+      <button onclick="handleCheckout()" class="w-full bg-sky-500 hover:bg-sky-400 text-white font-bold py-3.5 px-6 rounded-2xl shadow-2xl shadow-sky-500/50 flex items-center justify-between active:scale-95 text-sm">
+        <span>Beli E-Book DevByOx</span>
+        <span class="bg-white/20 px-2.5 py-1 rounded-xl text-xs">Rp 99rb →</span>
+      </button>
+    </div>
+
+    <!-- LIVE SOCIAL PROOF NOTIFICATION (Compact Top-Left) -->
+    <div
+      id="salesToast"
+      class="fixed top-20 left-4 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-full px-3.5 py-1.5 shadow-lg flex items-center gap-2.5 transition-all duration-500 -translate-y-20 opacity-0 pointer-events-none"
+    >
+      <div class="w-6 h-6 rounded-full bg-sky-500/10 text-sky-500 flex items-center justify-center text-xs shrink-0">🛒</div>
+      <div class="text-[11px] leading-tight flex items-center gap-1.5">
+        <span class="font-bold text-slate-900 dark:text-white" id="toastName">Key dari Bandung</span>
+        <span class="text-slate-400 dark:text-slate-500">•</span>
+        <span class="text-slate-500 dark:text-slate-400">membeli E-Book</span>
+      </div>
+    </div>
+
+    <!-- 3. AOS JavaScript File -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+      // 1. DARK / LIGHT MODE SWITCH
+      const html = document.documentElement;
+      const themeIcon = document.getElementById("themeIcon");
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        html.classList.remove("dark");
+        themeIcon.innerText = "☀️";
+      } else {
+        html.classList.add("dark");
+        themeIcon.innerText = "🌙";
+      }
+
+      function toggleTheme() {
+        if (html.classList.contains("dark")) {
+          html.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+          themeIcon.innerText = "☀️";
+        } else {
+          html.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+          themeIcon.innerText = "🌙";
+        }
+      }
+
+      // 2. INISIALISASI AOS ANIMASI
+      AOS.init({
+        once: true,
+        duration: 800,
+        easing: "ease-out-cubic",
+      });
+
+      // 3. FAQ ACCORDION LOGIC
+      function toggleFaq(id) {
+        const faqContent = document.getElementById(`faq-${id}`);
+        const icon = document.getElementById(`icon-${id}`);
+
+        if (faqContent.classList.contains("hidden")) {
+          faqContent.classList.remove("hidden");
+          icon.innerText = "−";
+        } else {
+          faqContent.classList.add("hidden");
+          icon.innerText = "+";
+        }
+      }
+
+      // 4. INTEGRASI CHECKOUT KE WHATSAPP
+      function handleCheckout() {
+        const nomorWA = "6285320561486";
+        const pesan = "Halo DevByOx! Saya mau pesan E-Book 'Frontend Roadmap 2026' seharga Rp 99.000. Mohon info nomor rekening / QRIS pembayarannya ya. Terima kasih!";
+        const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+        window.open(urlWA, "_blank");
+      }
+
+      // 5. HANDLER DOWNLOAD SAMPEL BAB 1
+      function downloadSample() {
+        alert("Terima kasih! Sampel Bab 1 E-Book DevByOx siap diunduh.");
+        // Untuk memasukkan PDF asli nanti: window.open('path/to/sample-bab1.pdf', '_blank');
+      }
+
+      // 6. FLOATING CTA SCROLL DETECTOR (MOBILE)
+      const floatingCta = document.getElementById("floatingCta");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          floatingCta.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
+          floatingCta.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+        } else {
+          floatingCta.classList.add("opacity-0", "translate-y-10", "pointer-events-none");
+          floatingCta.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+        }
+      });
+
+      // 7. COUNTDOWN TIMER (HITUNG MUNDUR)
+      let duration = 5 * 3600 + 12 * 60 + 30; // 5 jam 12 menit 30 detik
+      const timerDisplay = document.getElementById("countdownTimer");
+
+      setInterval(() => {
+        if (duration <= 0) duration = 24 * 3600; // Reset ke 24 jam bila habis
+        duration--;
+        const hrs = Math.floor(duration / 3600)
+          .toString()
+          .padStart(2, "0");
+        const mins = Math.floor((duration % 3600) / 60)
+          .toString()
+          .padStart(2, "0");
+        const secs = (duration % 60).toString().padStart(2, "0");
+        timerDisplay.innerText = `${hrs}:${mins}:${secs}`;
+      }, 1000);
+
+      // 8. SOCIAL PROOF NOTIFICATION SIMULATOR (Compact Top Version)
+      const buyers = ["Micel dari Surabaya", "Rizki dari Jakarta", "Vaniaaa dari Tadi", "Keisha dari Yogyakarta", "Fatir dari Bandung", "Elsa dari Manaya"];
+      const toast = document.getElementById("salesToast");
+      const toastName = document.getElementById("toastName");
+
+      function showToast() {
+        const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
+        toastName.innerText = randomBuyer;
+
+        // Muncul slide-down dari atas
+        toast.classList.remove("-translate-y-20", "opacity-0");
+        toast.classList.add("translate-y-0", "opacity-100");
+
+        // Sembunyi lagi ke atas setelah 3.5 detik
+        setTimeout(() => {
+          toast.classList.add("-translate-y-20", "opacity-0");
+          toast.classList.remove("translate-y-0", "opacity-100");
+        }, 3500);
+      }
+
+      // Jalankan pertama kali setelah 3 detik, lalu diulang tiap 12 detik
+      setTimeout(() => {
+        showToast();
+        setInterval(showToast, 12000);
+      }, 3000);
+
+      // Jalankan pertama kali setelah 3 detik, lalu diulang tiap 12 detik
+      setTimeout(() => {
+        showToast();
+        setInterval(showToast, 12000);
+      }, 3000);
+    </script>
+  </body>
+</html>
